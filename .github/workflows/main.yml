@@ -14,21 +14,11 @@ jobs:
         java-version: '17'
         distribution: 'temurin'
 
-    - name: Find Gradle and Grant Permissions
-      run: |
-        GRADLEW_PATH=$(find . -name "gradlew" | head -n 1)
-        if [ -z "$GRADLEW_PATH" ]; then
-          echo "Error: gradlew file could not be found anywhere in the repository!"
-          exit 1
-        fi
-        echo "Found gradlew at: $GRADLEW_PATH"
-        chmod +x "$GRADLEW_PATH"
-        echo "GRADLEW_DIR=$(dirname "$GRADLEW_PATH")" >> $GITHUB_ENV
+    - name: Setup Gradle
+      uses: gradle/actions/setup-gradle@v4
 
     - name: Build Debug APK
-      run: |
-        cd ${{ env.GRADLEW_DIR }}
-        ./gradlew assembleDebug
+      run: gradle assembleDebug
 
     - name: Upload APK Artifact
       uses: actions/upload-artifact@v4
