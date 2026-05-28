@@ -3,13 +3,7 @@ workflows:
     name: Sift Android APK Build
     max_build_duration: 30
     instance_type: mac_mini_m2
-    environment:
-      vars:
-        JAVA_VERSION: "17"
     scripts:
-      - name: Set Up Java 17
-        script: |
-          jdk-switch --version 17
       - name: Set up local properties
         script: |
           echo "sdk.dir=$ANDROID_SDK_ROOT" > local.properties
