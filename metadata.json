@@ -1,0 +1,6 @@
+{
+  "name": "Sift",
+  "description": "Smart Subscription Tracker & Optimizer using Gemini 1.5/3.5 Flash for OCR text extraction and financial spend optimization recommendations.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
